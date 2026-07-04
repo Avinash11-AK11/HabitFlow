@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Poppins', sans-serif;
+  --color-primary: #B2CFD8; /* Muted Sky Blue */
+  --color-accent: #E6C1BE; /* Muted Pastel Pink/Coral */
+  --color-success: #B8CBB9; /* Muted Sage Green */
+  --color-bg-custom: #FAF7F2; /* Warm Cream Base */
+  --color-text-dark: #2C2724; /* Muted Charcoal */
+  --color-text-secondary: #8A8279; /* Warm Muted Grey */
+  --color-card-white: #FCFAF7; /* Warm Off-White Card */
+}
+
+@utility shadow-neomorphic {
+  box-shadow: 12px 12px 28px rgba(138, 130, 121, 0.16), -12px -12px 28px rgba(255, 255, 255, 0.95);
+}
+
+@utility shadow-neomorphic-sm {
+  box-shadow: 6px 6px 16px rgba(138, 130, 121, 0.12), -6px -6px 16px rgba(255, 255, 255, 0.95);
+}
+
+@utility shadow-neomorphic-inset {
+  box-shadow: inset 4px 4px 10px rgba(138, 130, 121, 0.12), inset -4px -4px 10px rgba(255, 255, 255, 0.95);
+}
+
+@utility clay-card {
+  background: #FCFAF7;
+  border: 1px solid rgba(227, 218, 208, 0.5);
+  border-radius: 2rem;
+}
+
+@utility clay-card-lg {
+  background: #FCFAF7;
+  border: 1px solid rgba(227, 218, 208, 0.6);
+  border-radius: 2.5rem;
+}
+
+/* Custom scroll behavior and styling */
+html {
+  scroll-behavior: smooth;
+  background-color: #FAF7F2;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E3DAD0;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D5CFC5;
+}
+
+/* Soft Neomorphic Text Glow */
+.text-clay-glow {
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(138, 130, 121, 0.1);
+}
