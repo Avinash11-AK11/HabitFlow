@@ -1,9 +1,48 @@
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Interactive Mockup States
+  const [hydrateCompleted, setHydrateCompleted] = useState(true);
+  const [readBookCompleted, setReadBookCompleted] = useState(true);
+  const [weeklyGoals, setWeeklyGoals] = useState([true, true, true, true, true, false, false]); // M, T, W, T, F, S, S
+  
+  // Extra fun states for floating buttons
+  const [meditateCount, setMeditateCount] = useState(0);
+  const [workoutCount, setWorkoutCount] = useState(0);
+
+  // 3D Card Tilt Effect
+  const cardRef = useRef(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const box = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - box.left - box.width / 2;
+    const y = e.clientY - box.top - box.height / 2;
+    // Limit rotation to max 10 degrees
+    setTilt({
+      x: -y / (box.height / 20),
+      y: x / (box.width / 20)
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
+  // Derived Streaks Count
+  const activeStreaks = (hydrateCompleted ? 1 : 0) + (readBookCompleted ? 1 : 0) + (weeklyGoals.filter(Boolean).length >= 5 ? 1 : 0);
+
+  const toggleDay = (index) => {
+    const next = [...weeklyGoals];
+    next[index] = !next[index];
+    setWeeklyGoals(next);
   };
 
   return (
@@ -78,82 +117,161 @@ export default function Hero() {
 
             {/* Claymorphic Main SVG Widget */}
             <motion.div
+              ref={cardRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                rotateX: tilt.x,
+                rotateY: tilt.y,
+                transformStyle: 'preserve-3d',
+                perspective: 1000
+              }}
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="w-[280px] sm:w-[340px] aspect-square clay-card-lg shadow-neomorphic p-7 flex flex-col justify-between border-white/70"
+              className="w-[280px] sm:w-[340px] aspect-square clay-card-lg shadow-neomorphic p-7 flex flex-col justify-between border-white/70 cursor-default select-none transition-shadow duration-300 hover:shadow-neomorphic-lg"
             >
               {/* Widget Header */}
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center" style={{ transform: 'translateZ(30px)' }}>
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-[#FCFAF7] border border-[#E3DAD0]/60 flex items-center justify-center text-lg shadow-neomorphic-sm">
                     🌱
                   </div>
                   <div>
                     <h4 className="font-display font-bold text-xs text-text-dark">Daily Flow</h4>
-                    <p className="text-[9px] text-text-secondary mt-0.5">3 Active Streaks</p>
+                    <p className="text-[9px] text-text-secondary mt-0.5">{activeStreaks} Active Streaks</p>
                   </div>
                 </div>
-                {/* Sage Green Check bubble like the green buttons in reference image */}
-                <div className="w-7 h-7 rounded-full bg-[#B8CBB9] border border-white flex items-center justify-center text-[10px] font-bold text-emerald-950 shadow-neomorphic-sm">
+                {/* Sage Green Check bubble */}
+                <div 
+                  className={`w-7 h-7 rounded-full border flex items-center justify-center text-[10px] font-bold shadow-neomorphic-sm transition-all duration-300 ${
+                    activeStreaks === 3 
+                      ? 'bg-[#B8CBB9] border-white text-emerald-950 scale-110' 
+                      : 'bg-[#FCFAF7] border-[#E3DAD0] text-[#8A8279]'
+                  }`}
+                >
                   ✓
                 </div>
               </div>
 
-              {/* Neomorphic Interactive Elements, derived from the pastel circles in reference image */}
-              <div className="grid grid-cols-2 gap-4 my-4">
-                <div className="p-3.5 rounded-2xl bg-[#FCFAF7] border border-[#E3DAD0]/60 shadow-neomorphic-sm flex flex-col justify-between h-24">
-                  <span className="text-xl">💧</span>
+              {/* Neomorphic Habit Cards Grid */}
+              <div className="grid grid-cols-2 gap-4 my-4" style={{ transform: 'translateZ(45px)' }}>
+                {/* Hydrate Card */}
+                <button
+                  onClick={() => setHydrateCompleted(!hydrateCompleted)}
+                  className={`p-3.5 rounded-2xl border text-left flex flex-col justify-between h-24 shadow-neomorphic-sm transition-all duration-300 cursor-pointer group active:scale-95 ${
+                    hydrateCompleted 
+                      ? 'bg-[#B2CFD8]/15 border-[#B2CFD8]/50' 
+                      : 'bg-[#FCFAF7] border-[#E3DAD0]/40 opacity-70 hover:opacity-100'
+                  }`}
+                >
+                  <div className="flex justify-between items-start w-full">
+                    <span className={`text-xl transition-transform duration-300 ${hydrateCompleted ? 'scale-115 -translate-y-0.5' : 'scale-100'}`}>💧</span>
+                    <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center text-[7px] transition-colors ${
+                      hydrateCompleted ? 'bg-[#B2CFD8] border-white text-text-dark' : 'border-[#E3DAD0]'
+                    }`}>
+                      {hydrateCompleted && '✓'}
+                    </div>
+                  </div>
                   <div>
                     <h5 className="font-display font-bold text-[10px] text-text-dark">Hydrate</h5>
-                    <p className="text-[8px] font-bold text-emerald-800 mt-0.5 bg-[#B8CBB9]/40 border border-[#B8CBB9]/20 px-1.5 py-0.5 rounded-full inline-block">🔥 12 Days</p>
+                    <p className={`text-[8px] font-bold mt-0.5 px-1.5 py-0.5 rounded-full inline-block border transition-colors ${
+                      hydrateCompleted 
+                        ? 'text-sky-900 bg-[#B2CFD8]/40 border-[#B2CFD8]/20' 
+                        : 'text-text-secondary bg-[#E3DAD0]/20 border-transparent'
+                    }`}>
+                      🔥 {hydrateCompleted ? '13' : '12'} Days
+                    </p>
                   </div>
-                </div>
+                </button>
                 
-                <div className="p-3.5 rounded-2xl bg-[#FCFAF7] border border-[#E3DAD0]/60 shadow-neomorphic-sm flex flex-col justify-between h-24">
-                  <span className="text-xl">📚</span>
+                {/* Read Book Card */}
+                <button
+                  onClick={() => setReadBookCompleted(!readBookCompleted)}
+                  className={`p-3.5 rounded-2xl border text-left flex flex-col justify-between h-24 shadow-neomorphic-sm transition-all duration-300 cursor-pointer group active:scale-95 ${
+                    readBookCompleted 
+                      ? 'bg-[#B8CBB9]/15 border-[#B8CBB9]/50' 
+                      : 'bg-[#FCFAF7] border-[#E3DAD0]/40 opacity-70 hover:opacity-100'
+                  }`}
+                >
+                  <div className="flex justify-between items-start w-full">
+                    <span className={`text-xl transition-transform duration-300 ${readBookCompleted ? 'scale-115 -translate-y-0.5' : 'scale-100'}`}>📚</span>
+                    <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center text-[7px] transition-colors ${
+                      readBookCompleted ? 'bg-[#B8CBB9] border-white text-emerald-950' : 'border-[#E3DAD0]'
+                    }`}>
+                      {readBookCompleted && '✓'}
+                    </div>
+                  </div>
                   <div>
                     <h5 className="font-display font-bold text-[10px] text-text-dark">Read Book</h5>
-                    <p className="text-[8px] font-bold text-blue-800 mt-0.5 bg-[#B2CFD8]/40 border border-[#B2CFD8]/20 px-1.5 py-0.5 rounded-full inline-block">🔥 5 Days</p>
+                    <p className={`text-[8px] font-bold mt-0.5 px-1.5 py-0.5 rounded-full inline-block border transition-colors ${
+                      readBookCompleted 
+                        ? 'text-emerald-900 bg-[#B8CBB9]/40 border-[#B8CBB9]/20' 
+                        : 'text-text-secondary bg-[#E3DAD0]/20 border-transparent'
+                    }`}>
+                      🔥 {readBookCompleted ? '6' : '5'} Days
+                    </p>
                   </div>
-                </div>
+                </button>
               </div>
 
               {/* Progress and status */}
-              <div className="flex items-center justify-between pt-3 border-t border-[#E3DAD0]/50">
+              <div className="flex items-center justify-between pt-3 border-t border-[#E3DAD0]/50" style={{ transform: 'translateZ(30px)' }}>
                 <span className="text-[9px] font-bold text-text-secondary uppercase tracking-wider">Weekly Goals</span>
                 <div className="flex gap-1.5">
                   {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day, i) => (
-                    <div
+                    <button
                       key={i}
-                      className={`w-5.5 h-5.5 rounded-full flex items-center justify-center text-[8px] font-bold shadow-neomorphic-sm border ${
-                        i < 5 
-                          ? 'bg-[#B8CBB9] text-emerald-950 border-white' 
-                          : 'bg-[#FCFAF7] border-[#E3DAD0] text-gray-400'
+                      onClick={() => toggleDay(i)}
+                      className={`w-5.5 h-5.5 rounded-full flex items-center justify-center text-[8px] font-bold shadow-neomorphic-sm border cursor-pointer active:scale-90 transition-all duration-200 ${
+                        weeklyGoals[i] 
+                          ? 'bg-[#B8CBB9] text-emerald-950 border-white font-black scale-105' 
+                          : 'bg-[#FCFAF7] border-[#E3DAD0] text-[#8A8279]/60 hover:border-[#B8CBB9]/50'
                       }`}
+                      title={`Toggle completion for ${day}`}
                     >
                       {day}
-                    </div>
+                    </button>
                   ))}
                 </div>
               </div>
             </motion.div>
 
-            {/* Extra floating elements around the card, matching neomorphic theme */}
-            <motion.div
-              animate={{ y: [0, 6, 0], x: [0, 4, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="absolute -top-6 -right-6 w-14 h-14 rounded-2xl bg-[#B2CFD8] border-2 border-white shadow-neomorphic flex items-center justify-center text-xl"
+            {/* Extra floating elements around the card */}
+            <motion.button
+              onClick={() => setMeditateCount(c => c + 1)}
+              animate={{ 
+                y: [0, 6, 0], 
+                x: [0, 4, 0],
+                scale: meditateCount > 0 ? [1, 1.2, 1] : 1
+              }}
+              transition={{ 
+                y: { repeat: Infinity, duration: 5, ease: "easeInOut" },
+                x: { repeat: Infinity, duration: 5, ease: "easeInOut" },
+                scale: { duration: 0.3 }
+              }}
+              className="absolute -top-6 -right-6 w-14 h-14 rounded-2xl bg-[#B2CFD8] border-2 border-white shadow-neomorphic flex items-center justify-center text-xl cursor-pointer hover:brightness-105 active:scale-95"
+              title="Click to meditate 🧘"
             >
               🧘
-            </motion.div>
+            </motion.button>
 
-            <motion.div
-              animate={{ y: [0, -6, 0], x: [0, -6, 0] }}
-              transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-6 w-16 h-16 rounded-[1.6rem] bg-[#E6C1BE] border-2 border-white shadow-neomorphic flex items-center justify-center text-2xl"
+            <motion.button
+              onClick={() => setWorkoutCount(c => c + 1)}
+              animate={{ 
+                y: [0, -6, 0], 
+                x: [0, -6, 0],
+                scale: workoutCount > 0 ? [1, 1.2, 1] : 1
+              }}
+              transition={{ 
+                y: { repeat: Infinity, duration: 7, ease: "easeInOut" },
+                x: { repeat: Infinity, duration: 7, ease: "easeInOut" },
+                scale: { duration: 0.3 }
+              }}
+              className="absolute -bottom-6 -left-6 w-16 h-16 rounded-[1.6rem] bg-[#E6C1BE] border-2 border-white shadow-neomorphic flex items-center justify-center text-2xl cursor-pointer hover:brightness-105 active:scale-95"
+              title="Click to lift weights 🏋️"
             >
               🏋️
-            </motion.div>
+            </motion.button>
           </motion.div>
         </div>
       </div>
