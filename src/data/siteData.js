@@ -66,8 +66,8 @@ export const features = [
   },
   {
     icon: FiUserMinus,
-    title: 'No Login Required',
-    description: 'No usernames. No passwords. No email required. Download, open the app, and build habits.',
+    title: 'Secure Account System',
+    description: 'Create your personal account to keep your habits safe, sync your progress, and personalize your profile.',
     color: 'bg-cyan-50 text-cyan-600 border-cyan-100'
   },
   {
@@ -107,9 +107,9 @@ export const comparisons = [
     badge: 'Clay UI'
   },
   {
-    title: 'No Account Needed',
-    description: 'Skip the "Sign Up" page. There are no logins, no cloud registrations, and no subscriptions to get in your way.',
-    badge: 'Instant Setup'
+    title: 'Account & Profile',
+    description: 'Create a personal account to manage your profile, secure your habit data, and personalize your experience with a name and avatar.',
+    badge: 'Secure Profile'
   },
   {
     title: 'Motivating Streaks',
@@ -220,8 +220,8 @@ export const faqs = [
     answer: "Absolutely! In fact, the app is designed to be completely offline-first. It queries and saves data locally in milliseconds. You can check off habits on a plane, in the subway, or deep in the mountains with zero internet access."
   },
   {
-    question: "Does it require a login?",
-    answer: "No login is required. We want to reduce all friction. Just download the app and start building streaks immediately. There are no email forms, sign-up popups, or cloud sync configurations to worry about."
+    question: "Does it require a login or account?",
+    answer: "Yes, Habixa requires you to create a free account to get started. Your account lets you personalize your profile with a name and avatar, and keeps your habits organized and secure on your device."
   },
   {
     question: "Is the app free?",

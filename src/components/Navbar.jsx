@@ -74,7 +74,7 @@ export default function Navbar() {
             </div>
           </div>
           <span className="font-display font-bold text-xl tracking-tight text-text-dark">
-            Habit<span className="text-primary">Flow</span>
+            Habi<span className="text-primary">xa</span>
           </span>
         </Link>
 

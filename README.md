@@ -1,4 +1,4 @@
-# HabitFlow Web 🌿
+# Habixa Web 🌿
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62B)](https://vite.dev/)
@@ -6,7 +6,7 @@
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-The official premium product marketing, landing, and compliance website for the **HabitFlow** Flutter Android application. 
+The official premium product marketing, landing, and compliance website for the **Habixa** Flutter Android application. 
 
 This website is engineered to promote the mobile application, host legal compliance agreements (Privacy Policy and Terms of Service) required for Google Play Store registration, and offer an interactive support desk for users.
 

@@ -16,12 +16,12 @@ export default function Support() {
     {
       id: 1,
       question: "My habit progress disappeared after updating the app. Can I recover it?",
-      answer: "HabitFlow uses an on-device database called Hive. App updates downloaded directly from the Google Play Store do not wipe your database. However, performing a manual app uninstall, clearing your phone storage cache, or using automated phone cleaner utilities will delete the local file database. Since we do not use accounts, we cannot recover local-only files. Make sure not to clear cache files."
+      answer: "Habixa uses an on-device database called Hive. App updates downloaded directly from the Google Play Store do not wipe your database. However, performing a manual app uninstall, clearing your phone storage cache, or using automated phone cleaner utilities will delete the local file database. Make sure not to clear cache files, and regularly use the backup feature to protect your data."
     },
     {
       id: 2,
       question: "Reminders / notifications are not triggering at my set times.",
-      answer: "Android operating systems occasionally suspend local background alarms to optimize battery life. To ensure consistent alerts, open your Android Settings &rarr; Apps &rarr; HabitFlow &rarr; Battery, and verify it is set to 'Unrestricted'. Also check that system notification permissions are fully enabled."
+      answer: "Android operating systems occasionally suspend local background alarms to optimize battery life. To ensure consistent alerts, open your Android Settings &rarr; Apps &rarr; Habixa &rarr; Battery, and verify it is set to 'Unrestricted'. Also check that system notification permissions are fully enabled."
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ export default function Support() {
     const email = 'chavdaavinash24@gmail.com';
     const subject = encodeURIComponent(`[Bug Report] ${bugTitle}`);
     const body = encodeURIComponent(
-      `Device Model / OS Version: ${bugDevice}\n\nBug Description:\n${bugDesc}\n\nSent from HabitFlow Support Hub`
+      `Device Model / OS Version: ${bugDevice}\n\nBug Description:\n${bugDesc}\n\nSent from Habixa Support Hub`
     );
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
@@ -50,7 +50,7 @@ export default function Support() {
     const email = 'chavdaavinash24@gmail.com';
     const subject = encodeURIComponent(`[Feature Request] ${featureTitle}`);
     const body = encodeURIComponent(
-      `Feature Summary:\n${featureTitle}\n\nWhy this would be awesome:\n${featureReason}\n\nSent from HabitFlow Support Hub`
+      `Feature Summary:\n${featureTitle}\n\nWhy this would be awesome:\n${featureReason}\n\nSent from Habixa Support Hub`
     );
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };

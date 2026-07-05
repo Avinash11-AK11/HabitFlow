@@ -137,7 +137,7 @@ export default function Hero() {
                     🌱
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-xs text-text-dark">Daily Flow</h4>
+                    <h4 className="font-display font-bold text-xs text-text-dark">Habixa</h4>
                     <p className="text-[9px] text-text-secondary mt-0.5">{activeStreaks} Active Streaks</p>
                   </div>
                 </div>

@@ -33,7 +33,7 @@ export default function DownloadCTA() {
               Ready to Build Better Habits?
             </h2>
             <p className="font-sans text-sm md:text-base text-text-secondary leading-relaxed max-w-lg mx-auto">
-              Download HabitFlow today on your Android device and start locking streaks, logging daily completions, and cultivating consistency.
+              Download Habixa today on your Android device and start locking streaks, logging daily completions, and cultivating consistency.
             </p>
           </div>
 

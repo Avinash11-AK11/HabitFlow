@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
             Product Philosophy
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-text-dark tracking-tight leading-[1.15] text-clay-glow">
-            Why HabitFlow is <br />
+            Why Habixa is <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8CAAB5] via-[#B2CFD8] to-[#B8CBB9]">Built Differently</span>
           </h2>
           <p className="font-sans text-sm text-text-secondary max-w-xl leading-relaxed mt-2">

@@ -16,7 +16,7 @@ export default function TermsOfService() {
         {/* Intro */}
         <section className="flex flex-col gap-3 font-sans text-sm text-[#6B7280] leading-relaxed">
           <p>
-            Welcome to <strong>HabitFlow</strong>. These Terms of Service (&quot;Terms&quot;) govern your access to and use of our mobile application (&quot;App&quot;).
+            Welcome to <strong>Habixa</strong>. These Terms of Service (&quot;Terms&quot;) govern your access to and use of our mobile application (&quot;App&quot;).
           </p>
           <p>
             Please read these Terms carefully. By accessing or using the App, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to all these terms, do not install or use the App.
@@ -51,12 +51,12 @@ export default function TermsOfService() {
           </div>
           <div className="font-sans text-sm text-[#6B7280] leading-relaxed pl-13 flex flex-col gap-3">
             <p>
-              HabitFlow operates strictly offline and stores your habit database locally on your device via Hive. Because we do not run backends or sync configurations to a remote database, **we do not compile backups of your habits**.
+              Habixa stores your habit database locally on your device via Hive. Your account profile (display name and avatar) is also saved on-device only. Because we do not sync to remote backends, <strong>we do not compile automatic cloud backups of your habits</strong>.
             </p>
             <p className="font-semibold text-text-dark bg-[#FAF7F2]/50 border border-[#E3DAD0]/70 p-3 rounded-lg flex items-start gap-2.5">
               <FiAlertCircle className="text-accent shrink-0 mt-0.5" size={16} />
               <span>
-                If you delete the application from your phone, clear your application cache files, or lose your hardware device, all progress, streaks, and settings will be permanently deleted and cannot be recovered by us.
+                If you delete the application from your phone, clear your application cache files, or lose your hardware device, all progress, streaks, and account settings will be permanently deleted and cannot be recovered by us.
               </span>
             </p>
           </div>

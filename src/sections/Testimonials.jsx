@@ -37,7 +37,7 @@ export default function Testimonials() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8CAAB5] via-[#B2CFD8] to-[#B8CBB9]">All Around the Globe</span>
           </h2>
           <p className="font-sans text-sm text-text-secondary max-w-xl leading-relaxed mt-2">
-            Hear from people who have successfully built consistency and unlocked streaks with HabitFlow.
+            Hear from people who have successfully built consistency and unlocked streaks with Habixa.
           </p>
         </div>
 

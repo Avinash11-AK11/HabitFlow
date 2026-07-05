@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
         {/* Intro */}
         <section className="flex flex-col gap-3 font-sans text-sm text-text-secondary leading-relaxed">
           <p>
-            At <strong>HabitFlow</strong>, we value your privacy above all else. This Privacy Policy describes how HabitFlow (referred to as &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) handles your data in our mobile application.
+            At <strong>Habixa</strong>, we value your privacy above all else. This Privacy Policy describes how Habixa (referred to as &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) handles your data in our mobile application.
           </p>
           <p>
             By installing and using our application, you consent to the collection and use of information in accordance with this policy. If you do not agree, please do not use the app.
@@ -47,11 +47,11 @@ export default function PrivacyPolicy() {
             <div className="w-10 h-10 rounded-xl bg-[#E6C1BE]/25 border border-[#E6C1BE]/50 flex items-center justify-center text-text-dark shadow-neomorphic-sm">
               <FiLock size={18} />
             </div>
-            <h2 className="text-lg md:text-xl font-display font-bold text-text-dark">2. Zero Account Setup</h2>
+            <h2 className="text-lg md:text-xl font-display font-bold text-text-dark">2. Account &amp; Profile Data</h2>
           </div>
           <div className="font-sans text-sm text-[#6B7280] leading-relaxed pl-13">
             <p>
-              HabitFlow does not require users to create accounts, provide emails, link social media coordinates, or establish passwords. Because you do not create an account, we do not compile user identity directories or associate your offline habits with your personal identity.
+              Habixa requires users to create a free account with a display name and optional avatar. Your account information (name and profile picture) is stored locally on your device inside the Hive database and is <strong>never transmitted to external servers</strong>. We do not link your account to external identity providers, emails, or social networks. Your personal identity remains private at all times.
             </p>
           </div>
         </section>
@@ -88,7 +88,7 @@ export default function PrivacyPolicy() {
           </div>
           <div className="font-sans text-sm text-[#6B7280] leading-relaxed pl-13">
             <p>
-              Our services are not designed to specifically target or aggregate data from children under 13. Since we do not register accounts, we do not knowingly request or gather personally identifiable files from minors. If you suspect a minor has inputted personal details, please notify us to purge the cached ad configurations immediately.
+              Our services are not designed to specifically target or aggregate data from children under 13. Account creation requires a display name only — no birth date, email, or personal contact information is collected. If you suspect a minor has provided personal information, please notify us to address the matter immediately.
             </p>
           </div>
         </section>

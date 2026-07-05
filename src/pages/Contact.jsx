@@ -1,4 +1,5 @@
 import { FiMail, FiGithub, FiLinkedin, FiMapPin } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 export default function Contact() {
   const contactMethods = [
@@ -77,18 +78,22 @@ export default function Contact() {
         })}
       </div>
 
-      {/* Map Embed or Neomorphic Accent Form Card */}
+      {/* Support CTA Card */}
       <div className="p-8 md:p-12 clay-card-lg shadow-neomorphic text-center max-w-3xl mx-auto">
+        <div className="w-14 h-14 rounded-2xl bg-[#B2CFD8]/30 border border-[#B2CFD8]/50 flex items-center justify-center text-2xl mx-auto mb-5 shadow-neomorphic-sm">
+          🛠️
+        </div>
         <h2 className="text-xl md:text-2xl font-display font-bold text-text-dark mb-3">Looking for Support?</h2>
-        <p className="font-sans text-sm text-text-secondary max-w-lg mx-auto leading-relaxed mb-6">
-          If you have active technical problems, click-through to our Support Center. We compile troubleshooting steps for widget updates, databases, and more.
+        <p className="font-sans text-sm text-text-secondary max-w-lg mx-auto leading-relaxed mb-7">
+          Having a technical issue with Habixa? Our Support Center has troubleshooting guides for streaks, notifications, account setup, backups, and more.
         </p>
-        <a
-          href="/support"
-          className="inline-block px-8 py-3 bg-[#B2CFD8] border border-[#FCFAF7] text-text-dark font-display font-bold text-xs rounded-full shadow-neomorphic-sm hover:shadow-neomorphic hover:-translate-y-0.5 active:translate-y-0 active:shadow-neomorphic-inset transition-all duration-300"
+        <Link
+          to="/support"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#B2CFD8] border border-[#FCFAF7] text-text-dark font-display font-bold text-sm rounded-full shadow-neomorphic-sm hover:shadow-neomorphic hover:-translate-y-0.5 active:translate-y-0 active:shadow-neomorphic-inset transition-all duration-300"
         >
-          Go to Support Center
-        </a>
+          Go to Support Center →
+        </Link>
       </div>
     </div>
   );

@@ -168,7 +168,7 @@ export default function Footer() {
         <div className="h-[1px] bg-[#E3DAD0] w-full mb-8" />
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 font-sans text-xs text-text-secondary">
-          <p>© {new Date().getFullYear()} HabitFlow. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Habixa. All rights reserved.</p>
           <div className="flex items-center gap-1.5 py-1 px-3 bg-[#FCFAF7] border border-[#E3DAD0]/75 rounded-full shadow-neomorphic-sm">
             <span>Made with ❤️ using</span>
             <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#8CAAB5]">Flutter</span>

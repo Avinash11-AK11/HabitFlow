@@ -28,7 +28,7 @@ export default function Screenshots() {
             Visual Showcases
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-text-dark tracking-tight leading-[1.15]">
-            Experience HabitFlow <br />
+            Experience Habixa <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8CAAB5] via-[#B2CFD8] to-[#B8CBB9]">In High Definition</span>
           </h2>
           <p className="font-sans text-sm text-text-secondary max-w-xl leading-relaxed mt-2">
